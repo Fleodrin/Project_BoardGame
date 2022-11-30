@@ -10,6 +10,9 @@ for (let card of cardElement) {
             title.textContent = 'Congratulations!';
             title.classList.remove('visually-hidden');
             wrapper.classList.add('animation');
+            title.addEventListener('click', () => {
+                wrapper.style.animationName = 'rotate-final';
+            })
         }
     })
 }

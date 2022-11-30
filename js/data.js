@@ -34,7 +34,6 @@ function removeTextContent(card) {
 
 const searchForCompleteCards = (searchCards, clickedCards) => {
     if (count === 2 && searchCards.length === 2) {
-        console.log('Hi!');
         for (let completeCard of searchCards) {
             completeCard.classList.remove(`main__content--${completeCard.dataset.card}`);
             removeClicked(completeCard);

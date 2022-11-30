@@ -21,12 +21,53 @@
     justify-content: center;
 }
 
+.main-title {
+    position: absolute;
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: aliceblue;
+    text-transform: uppercase;
+    text-align: center;
+    left: 0;
+    text-shadow: 6px 5px 2px black;
+    top: 10%;
+    bottom: 0;
+    right: 0;
+    font-size: 80px;
+    z-index: 1;
+}
+
 .main__content-wrapper {
     display: grid;
     grid-template-columns: repeat(6, 120px);
     gap: 20px;
     margin: 0 auto;
-    padding-top: 200px;
+    padding: 100px;
+}
+
+.animation {
+    position: relative;
+}
+
+.animation::after {
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/rickroll-roll.gif);
+    background-size: 100%;
+    bottom: 35%;
+}
+
+.animation::before {
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/cat-meme-cat-meme-dance.gif);
+    background-size: 100%;
+    right: 0;
+    bottom: 35%;
+    z-index: 1;
 }
 
 .main__content {
@@ -63,20 +104,17 @@
     background-color: #6c0d2f;
 }
 
+.main__content:active {
+    transition: 100ms;
+    opacity: 0.7;
+}
+
 .main__content--finished {
     position: relative;
     background-color: yellowgreen;
     color: lavender;
     pointer-events: none;
     transform: rotateY(0);
-}
-
-.main__content--finished:hover {
-    background-color: yellowgreen;
-}
-
-.main__content:active {
-    opacity: 0.7;
 }
 
 .clicked {

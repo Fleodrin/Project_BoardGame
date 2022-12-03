@@ -121,6 +121,11 @@
     transform: rotateY(0);
 }
 
+.main__content--finished:hover {
+    transform: scale(1) rotateY(0);
+    background-color: yellowgreen;
+}
+
 .clicked {
     transform: rotateY(0);
 }

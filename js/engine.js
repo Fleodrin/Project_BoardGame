@@ -1,4 +1,5 @@
 import {NUMBERS, NUMBERS_IN_LETTERS, cardContainer, cardElements, initialArray} from './data.js';
+import {searchFinishedCard} from "./result-animation.js";
 
 let count = 0;
 const searchForCompleteCards = (searchCards, clickedCards) => {
@@ -21,6 +22,8 @@ const searchForCompleteCards = (searchCards, clickedCards) => {
 
         return count = 0;
     }
+
+    searchFinishedCard();
 }
 
 function removeClicked(card) {

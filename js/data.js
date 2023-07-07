@@ -1,4 +1,4 @@
-const NUMBERS = {
+export const NUMBERS = {
     first: '1',
     second: '2',
     third: '3',
@@ -9,63 +9,18 @@ const NUMBERS = {
     eighth: '8',
     ninth: '9',
 }
-const cardContainer = document.querySelector('.main__content-wrapper');
-export const cardElement = cardContainer.querySelectorAll('.main__content');
-
-let count = 0;
-
-function removeClicked(card) {
-    const removeElement = () => {
-        card.classList.remove('clicked');
-        return 0;
-    };
-    
-    setTimeout(removeElement, 700);
+export const NUMBERS_IN_LETTERS = {
+    1: 'first',
+    2: 'second',
+    3: 'third',
+    4: 'fourth',
+    5: 'fifth',
+    6: 'sixth',
+    7: 'seventh',
+    8: 'eighth',
+    9: 'ninth'
 }
-
-function removeTextContent(card) {
-    const removeElement = () => {
-        card.textContent = '';
-        return 0;
-    };
-    
-    setTimeout(removeElement, 700);
-}
-
-const searchForCompleteCards = (searchCards, clickedCards) => {
-    if (count === 2 && searchCards.length === 2) {
-        for (let completeCard of searchCards) {
-            completeCard.classList.remove(`main__content--${completeCard.dataset.card}`);
-            removeClicked(completeCard);
-            completeCard.classList.add(`main__content--finished`);
-        }
-
-        return count = 0;
-    }
-
-    if (count !== 1) {
-        for (let incompleteCard of clickedCards) {
-            removeTextContent(incompleteCard);
-            removeClicked(incompleteCard);
-            incompleteCard.classList.remove(`main__content--${incompleteCard.dataset.card}`);
-        }
-
-        return count = 0;
-    }
-}
-
-for (let card of cardElement) {
-    card.addEventListener('click', () => {
-            if (!card.classList.contains('clicked')) count += 1;
-
-            card.classList.add('clicked');
-            card.classList.add(`main__content--${card.dataset.card}`);
-            
-            const clickedCards = cardContainer.querySelectorAll('.clicked');
-            const searchCards = cardContainer.querySelectorAll(`.main__content--${card.dataset.card}`);
-            card.textContent = NUMBERS[card.dataset.card];
-
-            searchForCompleteCards(searchCards, clickedCards);
-        }
-    );
-}
+export const cardContainer = document.querySelector('.main__content-wrapper');
+export const cardElements = cardContainer.querySelectorAll('.main__content');
+export let initialArray = Array.from({length: 9}, (_, index) => index + 1);
+initialArray.push(...initialArray)
